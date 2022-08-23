@@ -1,0 +1,40 @@
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -0.5rem;
+  margin-left: -0.5rem;
+  margin-top: -0.5rem;
+}
+
+.col {
+  flex-grow: 1;
+  flex-basis: 0;
+  padding: 0.5rem;
+}
+
+.product-price {
+  width: 150px;
+  color: red;
+  font-size: 30px;
+  display: inline-block;
+  text-align: center;
+}
+
+.product-image-col {
+  width: 300px;
+}
+
+.product-details-col {
+  width: 800px;
+}
+
+.product-description-col {
+  font-size: large;
+}
+
+.product-price-col {
+  width: 300px;
+}
+.product-description-text {
+  font-size: medium;
+}

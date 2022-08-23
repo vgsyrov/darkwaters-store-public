@@ -1,0 +1,42 @@
+.sizes {
+  .p-inputtext {
+    display: block;
+    margin-bottom: 0.5rem;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.p-field * {
+  display: block;
+}
+
+.p-float-label {
+  margin-top: 30px;
+}
+
+.address-button {
+  text-align: center;
+  margin-top: 1rem;
+  margin-right: 10px;
+}
+
+.address-header {
+  font-size: large;
+  color: blue;
+}
+
+.address-home-group-label {
+  font-size: large;
+  color: blue;
+}
+
+input.ng-touched.ng-invalid {
+  border-color: red;
+}
+
+.address-main {
+  margin-bottom: 30px;
+}

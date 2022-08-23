@@ -1,0 +1,38 @@
+<p-toolbar xmlns="http://www.w3.org/1999/html">
+  <div class="p-toolbar-group-left">
+    <p-button icon="pi pi-home" [routerLink]="['']"> </p-button>
+  </div>
+  <div class="p-toolbar-group-right">
+    <div class="total-sum">
+      <ng-container *ngIf="user">
+        <div class="user-info">
+          {{ user.name }}
+        </div>
+        <div
+          *appCarousel="let currency of currencies; next as next; back as back"
+        >
+          <i class="pi pi-angle-left" (click)="back()"></i>
+          <i class="user-basket-sum">
+            {{ calcBasketSum() | currencyConv: mainCurrency:currency }}
+          </i>
+          <i class="pi pi-angle-right" (click)="next()"></i>
+        </div>
+      </ng-container>
+    </div>
+
+    <i> </i>
+
+    <i *ngIf="getBasketSize() > 0; else onlyCartButton">
+      <i pBadge [value]="'' + getBasketSize()" severity="warning">
+        <p-button
+          icon="pi pi-shopping-cart"
+          (click)="basketClicked.emit()"
+        ></p-button>
+      </i>
+    </i>
+  </div>
+</p-toolbar>
+
+<ng-template #onlyCartButton>
+  <p-button icon="pi pi-shopping-cart"></p-button>
+</ng-template>

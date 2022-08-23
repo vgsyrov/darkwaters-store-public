@@ -1,0 +1,42 @@
+<div *ngIf="basket$ | async as basket" [formGroup]="form">
+  <p-orderList
+    [value]="basket"
+    [listStyle]="{ 'max-height': '30rem' }"
+    header="Корзина"
+    filterBy="name"
+    filterPlaceholder="Фильтр по имени"
+    [dragdrop]="false"
+    formArrayName="counters"
+  >
+    <ng-template let-product pTemplate="item" let-index="index">
+      <div class="product-item">
+        <div class="image-container">
+          <img
+            [src]="'assets/data/images/product/' + product.image[0]"
+            [alt]="product.name"
+            class="product-image"
+          />
+        </div>
+        <div class="product-list-detail">
+          <h5 class="mb-2">{{ product.name }}</h5>
+          <i class="pi pi-tag product-category-icon"></i>
+          <span class="product-category">{{ product.category }}</span>
+        </div>
+        <div class="product-list-action">
+          <h6 class="mb-2" style="font-size: large">${{ product.price }}</h6>
+          <span
+            [class]="
+              'product-badge status-' + product.inventoryStatus.toLowerCase()
+            "
+            >{{ product.inventoryStatus }}</span
+          >
+          <app-quantity-input [formControlName]="index"> </app-quantity-input>
+        </div>
+      </div>
+    </ng-template>
+  </p-orderList>
+</div>
+
+<div class="address-button">
+  <p-button label="Оформить" routerLink="address"></p-button>
+</div>
